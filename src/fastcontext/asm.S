@@ -22,6 +22,10 @@
 #endif
 
 #if defined(__APPLE__)
+# if (QTHREAD_ASSEMBLY_ARCH == QTHREAD_ARM)
+#  define NEEDARMCONTEXT 1
+#  define SET _qt_setmctxt
+#  define GET _qt_getmctxt
 # if (QTHREAD_ASSEMBLY_ARCH == QTHREAD_IA32)
 #  define NEEDX86CONTEXT 1
 #  define SET _qt_setmctxt
